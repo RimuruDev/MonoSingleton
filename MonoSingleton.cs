@@ -51,7 +51,7 @@ namespace RimuruDev
             }
         }
 
-        protected virtual void Awake() => 
+        protected virtual void Awake() =>
             InitializeSingleton();
 
         protected virtual void InitializeSingleton()
@@ -64,6 +64,7 @@ namespace RimuruDev
                 if (instance == null)
                 {
                     instance = this as TComponent;
+                    transform.SetParent(null);
                     DontDestroyOnLoad(gameObject);
                 }
                 else if (instance != this)
